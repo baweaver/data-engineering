@@ -1,0 +1,21 @@
+%h1 Listing tabfiles
+
+%table
+  %tr
+    %th File name
+    %th Parsed
+    %th
+    %th
+    %th
+
+  - @tabfiles.each do |tabfile|
+    %tr
+      %td= tabfile.file_name
+      %td= tabfile.parsed
+      %td= link_to 'Show', tabfile
+      %td= link_to 'Edit', edit_tabfile_path(tabfile)
+      %td= link_to 'Destroy', tabfile, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Tabfile', new_tabfile_path

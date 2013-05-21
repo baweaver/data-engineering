@@ -1,4 +1,8 @@
 DataEngineering::Application.routes.draw do
+  resources :tabfiles
+
+  root to: 'tabfiles#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,26 @@
+%p#notice= notice
+
+%p
+  %b File name:
+  = @tabfile.file_name
+
+%p= @tabfile.parsed
+
+%h2 Total:
+%p= number_to_currency( Receipt.all.inject(0){ |sum, receipt| sum += Deal.find(receipt.deal_id).price * receipt.quantity } )
+  
+%h2 Receipts:
+
+%table
+  %tbody
+    - Receipt.all.each do |receipt|
+      %tr
+        %td= Customer.find(receipt.customer_id).name
+        %td= Deal.find(receipt.deal_id).description
+        %td= number_to_currency(Deal.find(receipt.deal_id).price)
+        %td= receipt.quantity
+        %td= number_to_currency(Deal.find(receipt.deal_id).price * receipt.quantity)
+
+= link_to 'Edit', edit_tabfile_path(@tabfile)
+\|
+= link_to 'Back', tabfiles_path
