@@ -1,0 +1,103 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+@import "compass";
+@import "compass/reset";
+
+html{
+  background: url("/assets/cream_pixels.png"); //SubtleTextures is amazing for these things.
+  body{ background: transparent; }
+}
+
+section{
+  background: transparent;
+  margin: 0 auto;
+  width: 900px;
+  h1{
+    font: 48px bold Georgia;
+    color: #FFF;
+    padding: 5px;
+    margin: 10px;
+    @include background-image(linear-gradient(#333,#111));
+  }
+  h2{
+    font: 36px bold Georgia;
+    color: #FFF;
+    padding: 5px;
+    margin: 10px;
+    @include background-image(linear-gradient(#333,#111));
+  }
+  
+  form{
+    margin: 10px;
+    label{ font-weight: bold; margin-right: 5px; }
+  }
+
+  a{
+    @include background-image(linear-gradient(#fff,#ccc));
+    @include border-radius(5px);
+    margin: 10px;
+    border: 1px solid #111;
+    text-decoration: none;
+    padding: 3px 15px;
+    
+    &:hover{
+      @include background-image(linear-gradient(#ccc, #fff));
+      color: #000;
+     }
+   }
+}
+
+table{
+  border: 1px solid #ddd;
+  margin: 0 auto;
+  width: 880px;
+
+  tr{
+    &:last-child{ border: 0; } // Keep the seperator off the edges
+
+    th{
+      padding: 10px 5px;
+      @include background-image(linear-gradient(#333,#111));
+      font-weight: bold;
+      color: #fff;
+      border-right: 1px solid #111;
+      }
+
+    td{
+      padding: 8px;
+      @include background-image(linear-gradient(#fff, #eee));
+      border-bottom: 1px solid #ccc;
+      border-right: 1px solid #ddd;
+      
+      a{
+        color: #fff;
+        @include background-image(linear-gradient(#fff,#ccc));
+        @include border-radius(5px);
+        border: 1px solid #111;
+        text-decoration: none;
+        padding: 3px 15px;
+        
+        &:hover{
+          @include background-image(linear-gradient(#ccc, #fff));
+         }
+       }
+
+       &:last-child{
+        width: 50px;
+       }
+    }
+  }
+}
+
